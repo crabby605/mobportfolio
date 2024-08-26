@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crabby.me</title>
+    <!-- Link to the favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        .section {
+            padding: 20px;
+        }
+        .highlight {
+            color: #00f;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1rem;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .code-snippet {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin-top: 20px;
+        }
+        .certificates img {
+            width: 100%;
+            max-width: 100%;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .certificates textarea {
+            width: 100%;
+            height: 60px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .socials a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 1.2rem;
+            display: block;
+        }
+        .donation-button {
+            background-color: #e74c3c; /* Red color for donation button */
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .donation-button:hover {
+            background-color: #c82333; /* Darker red shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>Welcome to <span class="highlight">crabby</span>.<span class="highlight">me</span></h1>
+        <button class="button" onclick="scrollNext()">Click here to go</button>
+    </div>
+    <div class="section">
+        <h1>About Me</h1>
+        <p>Hi, I'm <span class="highlight">Vihaan Pingalkar</span>. Welcome to my personal space!</p>
+        <div id="hobbies">
+            <p>I play some games and do coding. I'm not an adult yet; if you can, wish me on the first of November!</p>
+            <p>If you look all through the portfolio, consider donating to keep this site up and running.</p>
+        </div>
+    </div>
+    <div class="section">
+        <h1>My Coding Skills</h1>
+        <div class="skills-section">
+            <div class="skills-filter">
+                <button class="button" onclick="filterSkills('js')">JavaScript</button>
+                <button class="button" onclick="filterSkills('sql')">SQL</button>
+                <button class="button" onclick="filterSkills('java')">Java</button>
+                <button class="button" onclick="filterSkills('python')">Python</button>
+                <button class="button" onclick="filterSkills('linux')">Linux</button>
+                <button class="button" onclick="filterSkills('all')">Show All</button>
+            </div>
+            <div class="skills-content">
+                <div class="skill-category js">
+                    <div class="skill-item">
+                        <p><code>console.log("I can do JS");</code></p>
+                        <p>Look, I made it look the best I can.</p>
+                    </div>
+                </div>
+                <div class="skill-category sql">
+                    <div class="skill-item">
+                        <p><code>SELECT * FROM skills WHERE name = 'JS';</code></p>
+                    </div>
+                </div>
+                <div class="skill-category java">
+                    <div class="skill-item">
+                        <p><code>System.out.println("I can do Java");</code></p>
+                    </div>
+                </div>
+                <div class="skill-category python">
+                    <div class="skill-item">
+                        <p><code>print("I can do Python")</code></p>
+                    </div>
+                </div>
+                <div class="skill-category linux">
+                    <div class="skill-item">
+                        <p><code>echo "I can use Linux"</code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <h1>My Learning Journey</h1>
+        <div class="certificates">
+            <h2>EDX</h2>
+            <p>I'm learning Python using CS50 by Harvard and a Python course by MIT. Hope I pass!</p>
+            <h2>GitHub</h2>
+            <p>I'm on GitHub. Go to my last page to see and visit it.</p>
+            <h2>Hack Club</h2>
+            <p>Yes, I have a Hack Club. If you want to see the development, check my scrapbook.</p>
+            <h2>LeetCode</h2>
+            <p>Like any other sensible person, I have LeetCode.</p>
+            <h2>Google Cloud</h2>
+            <p>I've also learned to use Google Cloud. See my achievements below.</p>
+            <p><a href="ach.html" target="_blank">View All Achievements</a></p>
+        </div>
+    </div>
+    <div class="section">
+        <h1>My Socials</h1>
+        <div class="socials">
+            <a href="https://github.com/crabby605" target="_blank">GitHub</a>
+            <a href="https://www.reddit.com/user/crabby605" target="_blank">Reddit</a>
+            <a href="mailto:vihaanpingalkar4@proton.me">Email Me</a>
+            <button class="donation-button" onclick="donate()">Donate</button>
+        </div>
+    </div>
+    <script>
+        function donate() {
+            window.open('donation.html', '_blank');
+        }
+        function filterSkills(category) {
+            const skillCategories = document.querySelectorAll('.skill-category');
+            skillCategories.forEach(cat => {
+                if (category === 'all' || cat.classList.contains(category)) {
+                    cat.style.display = 'block';
+                } else {
+                    cat.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
